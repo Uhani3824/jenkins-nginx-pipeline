@@ -12,7 +12,7 @@ pipeline {
     // ── Environment variables ───────────────────────────────────────────────
     environment {
         APP_NAME    = 'nginx-portfolio-app'
-        DOCKER_USER = 'your-dockerhub-username'          // 🔁 change this
+        DOCKER_USER = 'uhani3824'
         IMAGE_NAME  = "${DOCKER_USER}/${APP_NAME}"
         IMAGE_TAG   = "${BUILD_NUMBER}"                  // unique tag per build
         FULL_IMAGE  = "${IMAGE_NAME}:${IMAGE_TAG}"

@@ -1,6 +1,6 @@
 # Jenkins CI/CD Pipeline — Static HTML/Nginx App
 
-A beginner-to-mid level DevOps project demonstrating a complete Jenkins
+A project demonstrating a complete Jenkins
 CI/CD pipeline that builds, tests, containerises, and pushes a static
 HTML website served by Nginx.
 
@@ -105,12 +105,3 @@ chmod +x tests/test_html.sh
 - **Shell scripting** — test automation
 
 ---
-
-## 📄 Resume Description
-
-> Designed and implemented a Jenkins declarative CI/CD pipeline for a
-> Dockerised Nginx web application. Pipeline automates checkout, HTML
-> validation testing, Docker image build with versioned tagging, container
-> health verification, and push to Docker Hub. Configured SCM polling
-> triggers, Jenkins credentials store for secure Docker Hub authentication,
-> and post-build cleanup to manage disk usage.

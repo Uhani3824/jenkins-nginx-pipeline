@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevOps Portfolio App</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      text-align: center;
+      padding: 40px;
+      max-width: 600px;
+    }
+    .badge {
+      display: inline-block;
+      background: #22c55e22;
+      color: #22c55e;
+      border: 1px solid #22c55e44;
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: 13px;
+      margin-bottom: 24px;
+      letter-spacing: .04em;
+    }
+    h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 12px; }
+    h1 span { color: #38bdf8; }
+    p { color: #94a3b8; font-size: 1rem; line-height: 1.7; margin-bottom: 32px; }
+    .stack {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #475569;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="badge">✅ Deployed via Jenkins CI/CD</div>
+    <h1>Hello from <span>Nginx</span></h1>
+    <p>
+      This app is automatically built and containerised using a
+      Jenkins declarative pipeline. Every push to the main branch
+      triggers a fresh Docker build.
+    </p>
+    <div class="stack">
+      <span class="tag">🐳 Docker</span>
+      <span class="tag">⚙️ Jenkins</span>
+      <span class="tag">🌐 Nginx</span>
+      <span class="tag">🔁 CI/CD</span>
+    </div>
+    <div class="footer">
+      Built by Umm-e-Hani · Jenkins Pipeline Project
+    </div>
+  </div>
+</body>
+</html>

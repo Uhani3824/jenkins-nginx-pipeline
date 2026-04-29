@@ -72,7 +72,7 @@ pipeline {
             }
         }
 
-        // ── Stage 4: Verify Image ───────────────────────────────────────────
+	// ── Stage 4: Verify Image ───────────────────────────────────────────
         stage('Verify Image') {
             steps {
                 echo "===== Stage 4: Verify Image ====="
@@ -80,23 +80,26 @@ pipeline {
                 // Confirm the image exists in local Docker
                 sh 'docker images ${IMAGE_NAME}'
 
-                // Run a test container and hit the health endpoint
+                // Run container and verify via its internal IP
                 sh '''
                     echo "Starting test container..."
                     docker run -d \
                         --name ${CONTAINER_TEST_NAME} \
-                        -p 9090:80 \
                         ${FULL_IMAGE}
 
                     echo "Waiting for container to start..."
                     sleep 5
 
+                    echo "Getting container IP..."
+                    CONTAINER_IP=$(docker inspect --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}" ${CONTAINER_TEST_NAME})
+                    echo "Container IP: $CONTAINER_IP"
+
                     echo "Checking health endpoint..."
-                    curl -f http://localhost:9090/health && echo " Health check PASSED ✅"
+                    curl -f http://$CONTAINER_IP/health && echo " Health check PASSED ✅"
                 '''
             }
         }
-
+        
         // ── Stage 5: Push to Docker Hub (only on main branch) ───────────────
         stage('Push to Docker Hub') {
             when {

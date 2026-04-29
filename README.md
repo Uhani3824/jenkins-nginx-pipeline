@@ -5,7 +5,13 @@ CI/CD pipeline that builds, tests, containerises, and pushes a static
 HTML website served by Nginx.
 
 ---
+## Pipeline in Action
 
+### Jenkins Stage View — All 5 stages passing
+![Jenkins Stage View](screenshots/jenkins-nginx-stages.png)
+
+### Docker Hub — Image pushed successfully
+![Docker Hub](screenshots/jenkins-nginx-dockerhub.png)
 ## 🗂️ Project Structure
 
 ```

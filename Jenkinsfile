@@ -65,14 +65,11 @@ pipeline {
                 // Build the Docker image from our Dockerfile
                 sh 'docker build -t ${FULL_IMAGE} .'
 
-                // Also tag it as latest
-                sh 'docker tag ${FULL_IMAGE} ${IMAGE_NAME}:latest'
-
                 echo "Image built successfully: ${FULL_IMAGE}"
             }
         }
 
-	// ── Stage 4: Verify Image ───────────────────────────────────────────
+        // ── Stage 4: Verify Image ───────────────────────────────────────────
         stage('Verify Image') {
             steps {
                 echo "===== Stage 4: Verify Image ====="
@@ -99,7 +96,7 @@ pipeline {
                 '''
             }
         }
-        
+
         // ── Stage 5: Push to Docker Hub (only on main branch) ───────────────
         stage('Push to Docker Hub') {
             when {
@@ -125,7 +122,8 @@ pipeline {
                         echo "Pushing ${FULL_IMAGE}..."
                         docker push ${FULL_IMAGE}
 
-                        echo "Pushing latest tag..."
+                        echo "Tagging and pushing latest..."
+                        docker tag ${FULL_IMAGE} ${IMAGE_NAME}:latest
                         docker push ${IMAGE_NAME}:latest
 
                         echo "Push complete ✅"
